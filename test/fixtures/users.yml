@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  answered: 1
+  common: 9.99
+  picture: MyString
+
+two:
+  name: MyString
+  answered: 1
+  common: 9.99
+  picture: MyString
