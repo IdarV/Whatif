@@ -1,34 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Total taken:</strong>
-  <%= @question.total_taken %>
-</p>
 
-<p>
-  <strong>What if:</strong>
-  <%= @question.whatif %>
-</p>
+<h1>What if:</h1>
+<p><%= @question.whatif.capitalize %></p>
 
-<p>
-  <strong>But:</strong>
-  <%= @question.but %>
-</p>
 
-<p>
-  <strong>Yes:</strong>
-  <%= @question.yes %>
-</p>
+<h1>But:</h1>
+<p><%= @question.but.capitalize %></p>
 
-<p>
-  <strong>No:</strong>
-  <%= @question.no %>
-</p>
+<button>YES</button>
+<button>NO</button>
+<br/>
 
-<p>
-  <strong>Total taken:</strong>
-  <%= @question.total_taken %>
-</p>
 
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>
