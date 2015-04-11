@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Total taken:</strong>
+  <%= @question.total_taken %>
+</p>
+
+<p>
+  <strong>If:</strong>
+  <%= @question.if %>
+</p>
+
+<p>
+  <strong>Yes:</strong>
+  <%= @question.yes %>
+</p>
+
+<p>
+  <strong>No:</strong>
+  <%= @question.no %>
+</p>
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>

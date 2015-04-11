@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  total_taken: 1
+  'yes': 1
+  'no': 1
+
+two:
+  total_taken: 1
+  'yes': 1
+  'no': 1
