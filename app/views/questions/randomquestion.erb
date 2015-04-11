@@ -8,10 +8,12 @@
 <h1>But:</h1>
 <p><%= @question.but.capitalize %></p>
 
-<button>YES</button>
-<button>NO</button>
+<!-- FIXME
+<% #button_to "YAS", action: 'show', value: 1 %>
+<%# button_to "NEIN", action: 'show', value: 0 %>
+-->
 <br/>
 
 
-<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Edit', edit_question_path(@question) %>
 <%= link_to 'Back', questions_path %>
