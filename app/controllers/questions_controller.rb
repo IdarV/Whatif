@@ -12,6 +12,10 @@ class QuestionsController < ApplicationController
   def show
   end
 
+  def randomquestion
+    @question = Question.order("RANDOM()").first
+  end
+
   # GET /questions/new
   def new
     @question = Question.new
