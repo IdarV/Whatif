@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Email</th>
       <th>Answered</th>
       <th>Common</th>
       <th>Picture</th>
@@ -17,6 +18,7 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.name %></td>
+        <td><%= user.email %></td>
         <td><%= user.answered %></td>
         <td><%= user.common %></td>
         <td><img src="<%= user.picture %>" alt="imagefromdatabase" style="width:100px;height:auto" class="img-thumbnail"></td>
