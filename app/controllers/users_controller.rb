@@ -46,6 +46,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
 
+    # Uploads picture to Cloudinary and sets url to the respective Cloudinary url
     unless params[:user][:picture].empty?
       img = Cloudinary::Uploader.upload(params[:user][:picture])
 
