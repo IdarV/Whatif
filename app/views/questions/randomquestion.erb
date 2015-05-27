@@ -1,15 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<p class="text-center"><%= @question.whatif.capitalize %></p>
 
-<h1>What if:</h1>
-<p><%= @question.whatif.capitalize %></p>
-
-
-<h1>But:</h1>
-<p><%= @question.but.capitalize %></p>
+<h1 class="text-center text-success">But:</h1>
+<p class=", text-center"><%= @question.but.capitalize %></p>
 
 <!-- FIXME
-<% #button_to "YAS", action: 'show', value: 1 %>
+<% #button_to "YAS", action: 'show', value: 1   %>
 <%# button_to "NEIN", action: 'show', value: 0 %>
 -->
 <br/>
