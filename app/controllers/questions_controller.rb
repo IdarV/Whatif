@@ -12,6 +12,11 @@ class QuestionsController < ApplicationController
   def show
   end
 
+  def answeredquestion
+    update_database
+    redirect_to '/'
+  end
+
   def randomquestion
     @question = Question.order("RANDOM()").first
   end
@@ -66,13 +71,32 @@ class QuestionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_question
-      @question = Question.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_question
+    @question = Question.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def question_params
-      params.require(:question).permit(:total_taken, :yes, :no, :whatif, :but)
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def question_params
+    params.require(:question).permit(:total_taken, :yes, :no, :whatif, :but)
+  end
+
+  def update_database
+    unless params['lastquestion'].nil?
+      answeredquestion = Question.find(params['lastquestion'])
+      buttonpressed = params['button']
+      puts 'question id: ' + answeredquestion.id.to_s
+      puts 'button pressed: ' + buttonpressed.to_s
+      unless buttonpressed.nil?
+        if buttonpressed == 'yes'
+          answeredquestion.increment!(:yes, 1)
+        else
+          answeredquestion.increment!(:no, 1)
+        end
+        answeredquestion.increment!(:total_taken, 1)
+      end
+      params.delete('lastquestion')
+      params.delete('button')
     end
+  end
 end

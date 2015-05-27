@@ -4,9 +4,9 @@
 
 <h1 class="text-center text-success">But:</h1>
 <p class="text-center"><%= @question.but.capitalize %></p>
-  <div style="width: 50%" class="row center-block">
-      <%= button_to 'YES', {action: 'randomquestion'}, {:class => 'btn btn-success btn-lg col-md-6 brd'} %>
-      <%= button_to 'NO', {action: 'randomquestion'}, {:class => 'btn btn-danger btn-lg col-md-6 brd '} %>
+<div style="width: 50%" class="center-block">
+    <%= button_to 'YES', {action: 'randomquestion', params: {button: 'yes', lastquestion: @question.id.to_i}}, {:class => 'btn btn-success btn-lg col-md-6 brd'} %>
+    <%= button_to 'NO', {action: 'randomquestion', params: {button: 'no', lastquestion: @question.id}}, {:class => 'btn btn-danger btn-lg col-md-6 brd '} %>
 </div>
 
 <br/><br/><br/><br/><br/>
