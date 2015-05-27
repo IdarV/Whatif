@@ -26,6 +26,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
+    #unless @user.picture.nil?
+      #img = Cloudinary::Uploader.upload(@user.picture)
+     # @user.picture = img.url
+   # end
+
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -40,6 +45,15 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+
+    unless params[:user][:picture].empty?
+      img = Cloudinary::Uploader.upload(params[:user][:picture])
+
+      unless img['url'].empty?
+        params[:user][:picture] = img['url']
+      end
+    end
+
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
