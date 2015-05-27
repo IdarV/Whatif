@@ -1,5 +1,4 @@
 <nav class="navbar navbar-inverse" role="navigation">
-  <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
@@ -10,7 +9,7 @@
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-">
+      <ul class="nav navbar-nav">
         <li>
           <a href="/">Home</a>
         </li>
@@ -21,9 +20,9 @@
           <a href="/questions">Questions</a>
         </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav pull-right">
+        <li><a href="/users/<%= current_user.id %>">User: <%= current_user.name %></a></li>
         <%= render 'device/login' %>
       </ul>
     </div>
-  </div>
 </nav>
