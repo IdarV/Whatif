@@ -21,7 +21,7 @@
         </li>
       </ul>
       <ul class="nav navbar-nav pull-right">
-        <li><a href="/users/<%= current_user.id %>">User: <%= current_user.name %></a></li>
+        <%= render 'device/currentuser' %>
         <%= render 'device/login' %>
       </ul>
     </div>
