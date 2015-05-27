@@ -28,6 +28,9 @@ gem 'devise'
 # Hirb for better Rails Console database output
 gem 'hirb'
 
+# Cloudinary for webservices (mainly images)
+gem 'cloudinary'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
