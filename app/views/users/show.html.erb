@@ -10,7 +10,8 @@
 
 <p>
   <strong>Common:</strong>
-  <%= @user.common %>
+  <% common = (current_user.common.to_f/current_user.answered) * 100 %>
+  <%= ('%.0f' % common).to_s + '%' %>
 </p>
 
 <p>

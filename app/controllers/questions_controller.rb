@@ -93,6 +93,7 @@ class QuestionsController < ApplicationController
       puts 'question id: ' + answeredquestion.id.to_s
       puts 'button pressed: ' + buttonpressed.to_s
       unless buttonpressed.nil?
+        update_user_answered
         if buttonpressed == 'yes'
           answeredquestion.increment!(:yes, 1)
           if answeredquestion.yes > answeredquestion.no
@@ -109,15 +110,17 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def update_user_commons
-    puts 'Name: ' + current_user.name + ', id: ' + current_user.id.to_s
+  def update_user_answered
     current_user.increment!(:answered, 1)
+  end
+
+  def update_user_commons
     current_user.increment!(:common, 1)
   end
 
   def get_common_percent
     common = (current_user.common.to_f/current_user.answered)
-    (current_user.common.to_s + " / " + current_user.answered.to_s + " = " + ('%.2f' % common).to_s)
+    ('%.2f' % common).to_s
   end
 
   def get_what_if_sentence(question)

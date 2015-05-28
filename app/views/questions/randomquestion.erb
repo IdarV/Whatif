@@ -12,8 +12,8 @@
 <br/><br/><br/><br/><br/>
 
 <% unless @lastquestion.nil? %>
-    <h2>Lastquestion: <%= @lastquestion %></h2>
-    <h2>Commonpercent: <%= @commonpercent %> </h2>
+    <p class="text-center">Last question: <%= @lastquestion %></p>
+    <p class="text-center">Commonpercent: <%= @commonpercent %> </p>
 <% end %>
 
 <%= link_to 'Edit', edit_question_path(@question) %>
