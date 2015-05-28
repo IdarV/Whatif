@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150528153551) do
+ActiveRecord::Schema.define(version: 20150528180155) do
 
   create_table "questions", force: :cascade do |t|
     t.integer  "total_taken"
@@ -26,15 +26,15 @@ ActiveRecord::Schema.define(version: 20150528153551) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.integer  "answered",               default: 0
-    t.string   "picture"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "picture",                default: "http://res.cloudinary.com/whatifapp/image/upload/v1432836484/stranger.jpg"
+    t.datetime "created_at",                                                                                                   null: false
+    t.datetime "updated_at",                                                                                                   null: false
+    t.string   "email",                  default: "",                                                                          null: false
+    t.string   "encrypted_password",     default: "",                                                                          null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,                                                                           null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"

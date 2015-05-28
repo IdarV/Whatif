@@ -1,23 +1,27 @@
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<div class="row">
+  <div style="padding-bottom: 10%; width: 50%" class="jumbotron center-block">
+    <p>
+      <strong>Name:</strong>
+      <%= @user.name %>
+    </p>
 
-<p>
-  <strong>Answered:</strong>
-  <%= @user.answered %>
-</p>
+    <p>
+      <strong>Answered:</strong>
+      <%= @user.answered %>
+    </p>
 
-<p>
-  <strong>Common:</strong>
-  <% common = (current_user.common.to_f/current_user.answered) * 100 %>
-  <%= ('%.0f' % common).to_s + '%' %>
-</p>
+    <p>
+      <strong>Common:</strong>
+      <% common = (current_user.common.to_f/current_user.answered) * 100 %>
+      <%= ('%.0f' % common).to_s + '%' %>
+    </p>
 
-<p>
-  <strong>Picture:</strong>
-  <%= @user.picture %>
-</p>
+    <p>
+      <strong>Picture:</strong><br/>
+      <%=  image_tag(@user.picture, height: "260") %>
+    </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+    <%= link_to 'Edit', edit_user_path(@user) %> |
+    <%= link_to 'Back', users_path %>
+  </div>
+</div>
