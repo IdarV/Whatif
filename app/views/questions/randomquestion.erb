@@ -1,14 +1,18 @@
-<p class="text-center"><%= @question.whatif.capitalize %></p>
+<p class="text-center"><%= @question.whatif %></p>
 
 <h1 class="text-center text-success">But:</h1>
-<p class="text-center"><%= @question.but.capitalize %></p>
+<p class="text-center"><%= @question.but %></p>
 <div style="width: 50%" class="center-block">
-    <%= button_to 'YES', {action: 'randomquestion'}, params: {button: 'yes', lastquestion: @question.id}, :class => 'btn btn-success btn-lg col-md-6 brd' %>
-    <%= button_to 'NO',  {action: 'randomquestion'}, params: {button: 'no', lastquestion: @question.id}, :class => 'btn btn-danger btn-lg col-md-6 brd '%>
+  <%= button_to 'YES', {action: 'randomquestion'}, params: {button: 'yes', lastquestion: @question.id}, :class => 'btn btn-success btn-lg col-md-6' %>
+  <%= button_to 'NO', {action: 'randomquestion'}, params: {button: 'no', lastquestion: @question.id}, :class => 'btn btn-danger btn-lg col-md-6' %>
 </div>
 
 <br/><br/><br/><br/><br/>
 <% unless @lastquestion.nil? %>
-    <p class="text-center">Last question: <%= @lastquestion %></p>
-    <p class="text-center">Commonpercent: <%= @commonpercent %> </p>
+    <div class="jumbotron">
+      <p class="text-center">Last question:</p>
+      <p class="text-center"><%= @lastquestion %></p>
+
+      <p class="text-center"><%= @commonpercent %> </p>
+    </div>
 <% end %>

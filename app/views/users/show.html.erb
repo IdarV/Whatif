@@ -11,14 +11,18 @@
     </p>
 
     <p>
-      <strong>Common:</strong>
-      <% common = (current_user.common.to_f/current_user.answered) * 100 %>
-      <%= ('%.0f' % common).to_s + '%' %>
+      <strong>Percent of answers are normal:</strong>
+      <% if current_user.answered == 0 %>
+          <%= '0%' %>
+      <% else %>
+          <% common = (current_user.common.to_f/current_user.answered) * 100 %>
+          <%= ('%.0f' % common).to_s + '%' %>
+      <% end %>
     </p>
 
     <p>
       <strong>Picture:</strong><br/>
-      <%=  image_tag(@user.picture, height: "260") %>
+      <%= image_tag(@user.picture, height: "260") %>
     </p>
 
     <%= link_to 'Edit', edit_user_path(@user) %> |

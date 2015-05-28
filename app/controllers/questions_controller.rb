@@ -119,8 +119,13 @@ class QuestionsController < ApplicationController
   end
 
   def get_common_percent
-    common = (current_user.common.to_f/current_user.answered)
-    ('%.2f' % common).to_s
+    question = Question.find(params['lastquestion'])
+    buttonpressed = params['button']
+    if buttonpressed == 'yes'
+      'You answered yes, among with ' + ('%.2f' % (question.yes.to_f/(question.total_taken))) + '% of users.'
+    else
+      'You answered no, among with ' + ('%.2f' % (question.no.to_f/(question.total_taken))) + '% of users.'
+    end
   end
 
   def get_what_if_sentence(question)
