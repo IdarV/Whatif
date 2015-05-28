@@ -21,7 +21,6 @@ class QuestionsController < ApplicationController
       update_database
       @commonpercent = get_common_percent
       @lastquestion = get_what_if_sentence(Question.find(params['lastquestion']))
-      puts 'LASTQUESTION = ' + @lastquestion.to_s
     end
     @question = Question.order("RANDOM()").first
   end
@@ -90,8 +89,6 @@ class QuestionsController < ApplicationController
     unless params['lastquestion'].nil?
       answeredquestion = Question.find(params['lastquestion'])
       buttonpressed = params['button']
-      puts 'question id: ' + answeredquestion.id.to_s
-      puts 'button pressed: ' + buttonpressed.to_s
       unless buttonpressed.nil?
         update_user_answered
         if buttonpressed == 'yes'
@@ -122,9 +119,9 @@ class QuestionsController < ApplicationController
     question = Question.find(params['lastquestion'])
     buttonpressed = params['button']
     if buttonpressed == 'yes'
-      'You answered yes, among with ' + ('%.2f' % (question.yes.to_f/(question.total_taken))) + '% of users.'
+      'You answered yes, among with ' + ('%.2f' % (100*(question.yes.to_f/(question.total_taken)))).to_s + '% of users.'
     else
-      'You answered no, among with ' + ('%.2f' % (question.no.to_f/(question.total_taken))) + '% of users.'
+      'You answered no, among with ' + ('%.2f' % (100*(question.no.to_f/(question.total_taken)))) + '% of users.'
     end
   end
 

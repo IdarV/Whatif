@@ -1,16 +1,14 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Listing Questions</h1>
 
 <table class="table table-condensed table-striped table-bordered">
   <thead>
     <tr>
-      <th>Total taken</th>
+      <th>ID</th>
       <th>What if</th>
       <th>But</th>
+      <th>Total taken</th>
       <th>Yes</th>
       <th>No</th>
-      <th>ID</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,12 +16,12 @@
   <tbody>
     <% @questions.each do |question| %>
       <tr>
-        <td><%= question.total_taken %></td>
+        <td><%= question.id %></td>
         <td><%= question.whatif %></td>
         <td><%= question.but %></td>
+        <td><%= question.total_taken %></td>
         <td><%= question.yes %></td>
         <td><%= question.no %></td>
-        <td><%= question.id %></td>
         <td><%= link_to 'Show', question %></td>
         <td><%= link_to 'Edit', edit_question_path(question) %></td>
         <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
