@@ -13,11 +13,16 @@ class QuestionsController < ApplicationController
   end
 
   def answeredquestion
-    update_database
-    redirect_to '/'
+
   end
 
   def randomquestion
+    unless params['lastquestion'].nil?
+      update_database
+      @commonpercent = get_common_percent
+      @lastquestion = get_what_if_sentence(Question.find(params['lastquestion']))
+      puts 'LASTQUESTION = ' + @lastquestion.to_s
+    end
     @question = Question.order("RANDOM()").first
   end
 
@@ -90,13 +95,32 @@ class QuestionsController < ApplicationController
       unless buttonpressed.nil?
         if buttonpressed == 'yes'
           answeredquestion.increment!(:yes, 1)
+          if answeredquestion.yes > answeredquestion.no
+            update_user_commons
+          end
         else
           answeredquestion.increment!(:no, 1)
+          if (answeredquestion.no > answeredquestion.yes)
+            update_user_commons
+          end
         end
         answeredquestion.increment!(:total_taken, 1)
       end
-      params.delete('lastquestion')
-      params.delete('button')
     end
+  end
+
+  def update_user_commons
+    puts 'Name: ' + current_user.name + ', id: ' + current_user.id.to_s
+    current_user.increment!(:answered, 1)
+    current_user.increment!(:common, 1)
+  end
+
+  def get_common_percent
+    common = (current_user.common.to_f/current_user.answered)
+    (current_user.common.to_s + " / " + current_user.answered.to_s + " = " + ('%.2f' % common).to_s)
+  end
+
+  def get_what_if_sentence(question)
+    'What if ' + question.whatif + ' but ' + question.but
   end
 end

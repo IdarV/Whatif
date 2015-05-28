@@ -5,11 +5,16 @@
 <h1 class="text-center text-success">But:</h1>
 <p class="text-center"><%= @question.but.capitalize %></p>
 <div style="width: 50%" class="center-block">
-    <%= button_to 'YES', {action: 'randomquestion', params: {button: 'yes', lastquestion: @question.id.to_i}}, {:class => 'btn btn-success btn-lg col-md-6 brd'} %>
-    <%= button_to 'NO', {action: 'randomquestion', params: {button: 'no', lastquestion: @question.id}}, {:class => 'btn btn-danger btn-lg col-md-6 brd '} %>
+    <%= button_to 'YES', {action: 'randomquestion'}, params: {button: 'yes', lastquestion: @question.id}, :class => 'btn btn-success btn-lg col-md-6 brd' %>
+    <%= button_to 'NO',  {action: 'randomquestion'}, params: {button: 'no', lastquestion: @question.id}, :class => 'btn btn-danger btn-lg col-md-6 brd '%>
 </div>
 
 <br/><br/><br/><br/><br/>
+
+<% unless @lastquestion.nil? %>
+    <h2>Lastquestion: <%= @lastquestion %></h2>
+    <h2>Commonpercent: <%= @commonpercent %> </h2>
+<% end %>
 
 <%= link_to 'Edit', edit_question_path(@question) %>
 <%= link_to 'Back', questions_path %>

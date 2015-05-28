@@ -15,4 +15,4 @@ Question.create([
 
 
 User.create(name: 'Vidar', email: 'twintip_idar@hotmail.com', encrypted_password:'$2a$08$fnkgjXgyHhesdiDcWK4sXezHnfz/6hAM.dQyiQLklvipRCNFiTVYW',
-            sign_in_count:'0', created_at: '2015-05-26 11:30:00', answered: 0, common:0.0, picture: 'http://th04.deviantart.net/fs70/PRE/i/2012/218/c/0/buckethead_by_stonedsour887-d4w3x92.jpg')
+            sign_in_count:'0', created_at: '2015-05-26 11:30:00', answered: 0, common:0, picture: 'http://th04.deviantart.net/fs70/PRE/i/2012/218/c/0/buckethead_by_stonedsour887-d4w3x92.jpg')
