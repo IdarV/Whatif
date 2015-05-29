@@ -1,13 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: MyName1
   answered: 1
   common: 9.99
-  picture: MyString
+  picture: http://s.imgur.com/images/favicon-144.png
+  email: Myname1@example.com
 
 two:
-  name: MyString
-  answered: 1
+  name: MyName2
+  answered: 2
   common: 9.99
-  picture: MyString
+  picture: http://s.imgur.com/images/favicon-144.png
+  email: Myname2@example.com
+
+minimal:
+  email: something@something.som

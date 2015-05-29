@@ -67,6 +67,8 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.5.2)
+    faker (1.4.3)
+      i18n (~> 0.5)
     ffi (1.9.8-x86-mingw32)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
@@ -189,6 +191,7 @@ DEPENDENCIES
   cloudinary
   coffee-rails (~> 4.1.0)
   devise
+  faker
   hirb
   jbuilder (~> 2.0)
   jquery-rails

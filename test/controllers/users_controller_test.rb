@@ -5,6 +5,10 @@ class UsersControllerTest < ActionController::TestCase
     @user = users(:one)
   end
 
+  test "thisistrue" do
+    assert_equal(1, 1)
+  end
+
   test "should get index" do
     get :index
     assert_response :success
