@@ -2,12 +2,26 @@
 ### Whatif is a game where your morals will be conflicted by your ego and self esteem
 
 # Info
+## Install and run
+### To install and run locally (given you already have RoR setup), run the following commands:
+> \> git clone https://github.com/IdarV/Whatif.git
+
+> \> cd /Whatif
+
+> \> bundle install
+
+> \> rake db:migrate
+
+> \> rake db:seed
+
+> \> rails server
+
 ## Mailcatcher:
-### For local mailcatching, do the following;
+### For local mailcatching, run the following;
 
-> gem install mailcatcher
+> \> gem install mailcatcher
 
-> mailcatcher --smtp-port 1024
+> \> mailcatcher --smtp-port 1024
 
 If you want to listen to default port (1025) remove the following line from config/environments/development.rb
 
@@ -16,4 +30,11 @@ If you want to listen to default port (1025) remove the following line from conf
 
  Mail can be read it at localhost:1080
 
-#### Click [this link](https://whatifgame.herokuapp.com/"whatifgame.herokuapp.com") to check out the online version on Heroku. (Might have unknown bugs while in development)
+## Tests:
+#### Run:
+> \> rake test
+### Coverage
+> there should be a folder 'coverage' in root. Launch /coverage/index.html to view coverage
+
+## Deployment:
+> Click [this link](https://whatifgame.herokuapp.com/"whatifgame.herokuapp.com") to check out the online version on Heroku. (Might have unknown bugs while in development)
