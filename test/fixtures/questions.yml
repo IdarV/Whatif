@@ -4,6 +4,8 @@ one:
   total_taken: 1
   'yes': 1
   'no': 1
+  whatif: wogoto
+  but: wieoao
 
 two:
   total_taken: 1

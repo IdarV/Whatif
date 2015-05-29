@@ -48,7 +48,10 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  # Creating fake test data
   gem 'faker'
+  # Coverage percent
+  gem 'simplecov'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
 
