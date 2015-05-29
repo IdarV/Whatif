@@ -12,10 +12,10 @@
 
     <p>
       <strong>Percent of answers are normal:</strong>
-      <% if current_user.answered == 0 %>
+      <% if @user.answered == 0 %>
           <%= '0%' %>
       <% else %>
-          <% common = (current_user.common.to_f/current_user.answered) * 100 %>
+          <% common = (@user.common.to_f/@user.answered) * 100 %>
           <%= ('%.0f' % common).to_s + '%' %>
       <% end %>
     </p>
