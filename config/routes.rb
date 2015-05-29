@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :path_prefix =>'auth'
   resources :questions
-
   resources :users
 
   post '/randomquestion' => 'questions#randomquestion', as: 'randomquestion'
 
   get '/randomquestion' => 'questions#randomquestion'
+
+  get '/users/new' => redirect('/404')
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
