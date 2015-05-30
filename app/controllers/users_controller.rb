@@ -47,9 +47,9 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     if current_user.admin? || @user.id == current_user.id
-      # Uploads picture to Cloudinary and sets url to the respective Cloudinary url
-      unless params[:user][:picture].empty? && Rails.env.production?
-        img = Cloudinary::Uploader.upload(params[:user][:picture])
+      # Uploads picture to Cloudinary
+      unless params[:user][:picture].empty? && (Rails.env.development || Rails.env.test)
+        img = cl_image_tag('stranger.jpg')
 
         unless img['url'].empty?
           params[:user][:picture] = img['url']
