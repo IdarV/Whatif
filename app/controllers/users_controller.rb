@@ -32,11 +32,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    #unless @user.picture.nil?
-    #img = Cloudinary::Uploader.upload(@user.picture)
-    # @user.picture = img.url
-    # end
-
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -53,7 +48,7 @@ class UsersController < ApplicationController
   def update
     if current_user.admin? || @user.id == current_user.id
       # Uploads picture to Cloudinary and sets url to the respective Cloudinary url
-      unless params[:user][:picture].empty?
+      unless params[:user][:picture].empty? && Rails.env.production?
         img = Cloudinary::Uploader.upload(params[:user][:picture])
 
         unless img['url'].empty?
