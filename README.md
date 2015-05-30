@@ -32,9 +32,11 @@ If you want to listen to default port (1025) remove the following line from conf
 
 ## Tests:
 #### Run:
+> \> rake db:migrate RAILS_ENV=test
+
 > \> rake test
-### Coverage
-> there should be a folder 'coverage' in root. Launch /coverage/index.html to view coverage
+
+> #### \# there should now be a folder /coverage' in root. Launch /coverage/index.html to view coverage in browser
 
 ## Deployment:
 > Click [this link](https://whatifgame.herokuapp.com/"whatifgame.herokuapp.com") to check out the online version on Heroku. (Might have unknown bugs while in development)
