@@ -14,5 +14,10 @@ two:
   picture: http://s.imgur.com/images/favicon-144.png
   email: Myname2@example.com
 
+admin:
+  name: admin
+  email: admin@whatif.com
+  admin: true
+
 minimal:
   email: something@something.som

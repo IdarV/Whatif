@@ -10,6 +10,12 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    unless current_user.admin? || @user.id == current_user.id
+      respond_to do |format|
+        format.html { redirect_to '/', alert: "You don't have access to view this user" }
+        format.json { render :show, status: :ok, location: @user }
+      end
+    end
   end
 
   # GET /users/new
@@ -45,23 +51,29 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    if current_user.admin? || @user.id == current_user.id
+      # Uploads picture to Cloudinary and sets url to the respective Cloudinary url
+      unless params[:user][:picture].empty?
+        img = Cloudinary::Uploader.upload(params[:user][:picture])
 
-    # Uploads picture to Cloudinary and sets url to the respective Cloudinary url
-    unless params[:user][:picture].empty?
-      img = Cloudinary::Uploader.upload(params[:user][:picture])
-
-      unless img['url'].empty?
-        params[:user][:picture] = img['url']
+        unless img['url'].empty?
+          params[:user][:picture] = img['url']
+        end
       end
-    end
 
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+      respond_to do |format|
+        if @user.update(user_params)
+          format.html { redirect_to @user, notice: 'User was successfully updated.' }
+          format.json { render :show, status: :ok, location: @user }
+        else
+          format.html { render :edit }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to '/', alert: 'User not updated. You are not admin' }
         format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
   end
