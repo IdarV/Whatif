@@ -100,7 +100,7 @@ class UsersControllerTest < ActionController::TestCase
     get :index
     get :index
     assert_select 'body div nav div ul' do
-      assert_select 'li', 3
+      assert_select 'li', 4
     end
   end
 
@@ -109,7 +109,7 @@ class UsersControllerTest < ActionController::TestCase
     sign_in(@admin)
     get :index
     assert_select 'body div nav div ul' do
-      assert_select 'li', 5
+      assert_select 'li', 6
     end
   end
 end

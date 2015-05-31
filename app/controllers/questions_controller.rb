@@ -82,7 +82,7 @@ class QuestionsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def question_params
-    params.require(:question).permit(:total_taken, :yes, :no, :whatif, :but)
+    params.require(:question).permit(:total_taken, :yes, :no, :whatif, :but, :author_name)
   end
 
   def update_database

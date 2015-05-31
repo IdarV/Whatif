@@ -21,19 +21,8 @@
       <%= f.text_field :but %>
     </div>
 
-    <div class="field">
-      <%= f.label :total_taken %><br>
-      <%= f.number_field :total_taken, :readonly => true, :value =>'0' %>
-    </div>
-
-    <div class="field">
-      <%= f.label :yes %><br>
-      <%= f.number_field :yes, :readonly => true, :value =>'0' %>
-    </div>
-
-    <div class="field">
-      <%= f.label :no %><br>
-      <%= f.number_field :no,:readonly => true, :value =>'0' %>
+    <div class="hidden">
+      <%= f.hidden_field :author_name, {:value => current_user.name} %>
     </div>
 
     <div class="actions">

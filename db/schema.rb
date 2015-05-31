@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150530160055) do
+ActiveRecord::Schema.define(version: 20150531135650) do
 
   create_table "questions", force: :cascade do |t|
-    t.integer  "total_taken"
-    t.integer  "yes"
-    t.integer  "no"
+    t.integer  "total_taken", default: 0
+    t.integer  "yes",         default: 0
+    t.integer  "no",          default: 0
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.string   "whatif"
