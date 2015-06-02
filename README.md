@@ -43,3 +43,5 @@ There should now be a folder /coverage' in root. Launch /coverage/index.html to 
 
 ## Deployment:
 > Click [this link](https://whatifgame.herokuapp.com/"whatifgame.herokuapp.com") to check out the online version on Heroku. (Might have unknown bugs while in development)
+
+> **ADMIN:** Log in with e-mail: admin@admin.admin, psw: adminadmin to log in as admin user
