@@ -1,6 +1,7 @@
-<div class="row">
-  <div style="padding-bottom: 10%; width: 50%" class="jumbotron center-block">
-    <h2>Sign up</h2>
+<div style="display: table" class="center-block">
+  <div style="border-bottom: 1px solid #18BC9C;margin-top: 10%;margin-bottom:1%;" class="center-block"></div>
+  <br><br>
+  <h1 class="header text-center">Sign up</h1>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
@@ -35,4 +36,4 @@
 
     <%= render "devise/shared/links" %>
   </div>
-</div>
+
