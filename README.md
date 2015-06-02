@@ -16,19 +16,22 @@
 
 > \> rails server
 
-## Mailcatcher:
-### For local mailcatching, run the following;
+## Mailing
+### Set up your own mailing service
+> \> figaro install
 
-> \> gem install mailcatcher
+> \# creates /config/application.yml and gitignores it
 
-> \> mailcatcher --smtp-port 1024
+> \# add **mandrill\_mail** and **mandrill\_psw** with your mailservice credentials to /config/application.yml
 
-If you want to listen to default port (1025) remove the following line from config/environments/development.rb
+>> *example:*
 
-> config.action_mailer.smtp_settings = {  port: 1024 }
+>> mandrill_mail: me@mymailservice.com
+
+>> mandrill_psw: myp4ssw0rd0rT0ken
 
 
- Mail can be read it at localhost:1080
+ Mail should now be sendable from your mailer
 
 ## Tests:
 #### Run:
@@ -36,7 +39,7 @@ If you want to listen to default port (1025) remove the following line from conf
 
 > \> rake test
 
-> #### \# there should now be a folder /coverage' in root. Launch /coverage/index.html to view coverage in browser
+There should now be a folder /coverage' in root. Launch /coverage/index.html to view coverage in browser
 
 ## Deployment:
 > Click [this link](https://whatifgame.herokuapp.com/"whatifgame.herokuapp.com") to check out the online version on Heroku. (Might have unknown bugs while in development)
