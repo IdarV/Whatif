@@ -22,6 +22,36 @@ class QuestionsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:questions)
   end
 
+  test "user should get randomquestion" do
+    get :randomquestion
+    assert_response :success
+  end
+
+  test "admin should get randomquestion" do
+    sign_out(@user)
+    sign_in(@admin)
+    get :randomquestion
+    assert_response :success
+  end
+
+  test "user should get information about last question" do
+    get :randomquestion
+    assert_response :success
+    post :randomquestion, {:post => {}, :button => 'yes', :lastquestion => @question.id}
+    assert_response :success
+    assert_select 'body div div p'
+  end
+
+  test "admin should get information about last question" do
+    sign_out(@user)
+    sign_in(@admin)
+    get :randomquestion
+    assert_response :success
+    post :randomquestion, {:post => {}, :button => 'yes', :lastquestion => @question.id}
+    assert_response :success
+    assert_select 'body div div p'
+  end
+
   test "should get new" do
     get :new
     assert_response :success
