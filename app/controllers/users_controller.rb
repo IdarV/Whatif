@@ -4,6 +4,12 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    unless current_user.admin?
+      respond_to do |format|
+        format.html { redirect_to '/', alert: "You don't have access to view that page" }
+        format.json { render :show, status: :ok, location: @user }
+      end
+    end
     @users = User.all
   end
 

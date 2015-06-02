@@ -4,6 +4,12 @@ class QuestionsController < ApplicationController
   # GET /questions
   # GET /questions.json
   def index
+    unless current_user.admin?
+      respond_to do |format|
+        format.html { redirect_to '/', alert: "You don't have access to view that page" }
+        format.json { render :show, status: :ok, location: @user }
+      end
+    end
     @questions = Question.all
   end
 
@@ -126,6 +132,6 @@ class QuestionsController < ApplicationController
   end
 
   def get_what_if_sentence(question)
-    'What if ' + question.whatif + ' but ' + question.but
+    'What if ' + question.whatif + ', but ' + question.but.downcase
   end
 end

@@ -3,10 +3,20 @@ require 'test_helper'
 class QuestionsControllerTest < ActionController::TestCase
   setup do
     sign_in(users(:one))
+    @admin = users(:admin)
+    @user = users(:one)
     @question = questions(:one)
   end
 
-  test "should get index" do
+  test "user should not get index" do
+    get :index
+    assert_response :redirect
+    assert_not_nil assigns(:questions)
+  end
+
+  test "admin should get index" do
+    sign_out(@user)
+    sign_in(@admin)
     get :index
     assert_response :success
     assert_not_nil assigns(:questions)

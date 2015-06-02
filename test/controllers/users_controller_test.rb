@@ -7,7 +7,15 @@ class UsersControllerTest < ActionController::TestCase
     @admin = users(:admin)
   end
 
-  test 'should get index' do
+  test 'user should not get list of all users' do
+    get :index
+    assert_response :redirect
+    assert_not_nil assigns(:users)
+  end
+
+  test 'admin should get list of all users' do
+    sign_out(@user)
+    sign_in(@admin)
     get :index
     assert_response :success
     assert_not_nil assigns(:users)
@@ -97,8 +105,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test 'user should not get admin header' do
-    get :index
-    get :index
+    get :show, id: @user
     assert_select 'body div nav div ul' do
       assert_select 'li', 4
     end
