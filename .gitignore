@@ -68,3 +68,6 @@ crashlytics-build.properties
 
 #Coverage after tests
 coverage
+
+# Ignore application configuration
+/config/application.yml

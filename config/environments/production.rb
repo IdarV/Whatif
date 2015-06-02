@@ -76,4 +76,24 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default :charset => "utf-8"
+
+  # Don't care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = true
+
+  # Devise config
+  #config.action_mailer.smtp_settings = {  port: 1024 }
+  config.action_mailer.smtp_settings = {
+      address: 'smtp.mandrillapp.com',
+      port: 587,
+      authentication: 'plain',
+      enable_starttls_auto: true,
+      user_name: ENV['mandrill_mail'],
+      password: ENV['mandrill_psw']
+  }
+
+  config.action_mailer.default_url_options = { :host => 'http://whatifgame.herokuapp.com' }
+
 end
