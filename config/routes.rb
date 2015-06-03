@@ -27,6 +27,11 @@ Rails.application.routes.draw do
     end
   end
 
+  unless Rails.application.config.consider_all_requests_local
+    get '*not_found', to: redirect('/404')
+  end
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
