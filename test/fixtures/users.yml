@@ -6,6 +6,7 @@ one:
   common: 9.99
   picture: http://s.imgur.com/images/favicon-144.png
   email: Myname1@example.com
+  id: 1
 
 two:
   name: MyName2

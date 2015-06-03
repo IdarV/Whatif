@@ -8,10 +8,10 @@
 
 Question.create([
                     {total_taken: 0, yes: 0, no: 0, whatif: 'something', but: 'somethingelse'},
-                    {total_taken: 0, yes: 0, no: 0, whatif: 'you became a toad', but: 'a princess would kiss you 5 years later'},
-                    {total_taken: 0, yes: 0, no: 0, whatif: 'you could save the world from a meteorite', but: 'you died in the process'},
-                    {total_taken: 0, yes: 0, no: 0, whatif: 'you got the newest tech the rest of your life', but: 'were stuck in a 5km city with no nature for the rest of your life'},
-                    {total_taken: 0, yes: 0, no: 0, whatif: 'you got to spend monopoly money as real money', but: 'you had to play monopoly sober and serious with 8 boring old guys for 8 hours a day'}])
+                    {total_taken: 0, yes: 0, no: 0, whatif: 'you became a toad', but: 'a princess would kiss you 5 years later', user_id: 1},
+                    {total_taken: 0, yes: 0, no: 0, whatif: 'you could save the world from a meteorite', but: 'you died in the process', user_id: 1},
+                    {total_taken: 0, yes: 0, no: 0, whatif: 'you got the newest tech the rest of your life', but: 'were stuck in a 5km city with no nature for the rest of your life', user_id: 1},
+                    {total_taken: 0, yes: 0, no: 0, whatif: 'you got to spend monopoly money as real money', but: 'you had to play monopoly sober and serious with 8 boring old guys for 8 hours a day', user_id: 1}])
 
 
 User.create([

@@ -16,10 +16,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
-  end
-
-  def answeredquestion
-
+    @question_author = User.find(@question.user_id).name
   end
 
   def randomquestion
@@ -29,6 +26,7 @@ class QuestionsController < ApplicationController
       @lastquestion = get_what_if_sentence(Question.find(params['lastquestion']))
     end
     @question = Question.order("RANDOM()").first
+    @question_author = User.find(@question.user_id).name
   end
 
   # GET /questions/new
@@ -44,6 +42,7 @@ class QuestionsController < ApplicationController
   # POST /questions.json
   def create
     @question = Question.new(question_params)
+    @question.user_id = current_user.id
 
     respond_to do |format|
       if @question.save
@@ -88,7 +87,7 @@ class QuestionsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def question_params
-    params.require(:question).permit(:total_taken, :yes, :no, :whatif, :but, :author_name)
+    params.require(:question).permit(:total_taken, :yes, :no, :whatif, :but)
   end
 
   def update_database

@@ -2,7 +2,7 @@
 
 <h1 class="text-center text-success">But:</h1>
 <p class="text-center"><%= @question.but %></p>
-<p style="color: #acb6c0" class="text-center">Question created by: <%= @question.author_name %></p>
+<p style="color: #acb6c0" class="text-center">Question created by: <%= @question_author %></p>
 <div style="width: 50%" class="center-block">
   <%= button_to 'YES', {action: 'randomquestion'}, params: {button: 'yes', lastquestion: @question.id}, :class => 'btn btn-success btn-lg col-md-6' %>
   <%= button_to 'NO', {action: 'randomquestion'}, params: {button: 'no', lastquestion: @question.id}, :class => 'btn btn-danger btn-lg col-md-6' %>
