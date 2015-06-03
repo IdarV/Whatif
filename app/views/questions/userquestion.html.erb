@@ -1,0 +1,31 @@
+<h1><%= current_user.name %>'s questions</h1>
+
+<table class="table table-condensed table-striped table-bordered">
+  <thead>
+  <tr>
+    <th>Questions nr.</th>
+    <th>What if</th>
+    <th>But</th>
+    <th>Total taken</th>
+    <th>Yes</th>
+    <th>No</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @questions.each do |question| %>
+      <tr>
+        <td><%= question.id %></td>
+        <td><%= question.whatif %></td>
+        <td><%= question.but %></td>
+        <td><%= question.total_taken %></td>
+        <td><%= question.yes %></td>
+        <td><%= question.no %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Question', new_question_path %>

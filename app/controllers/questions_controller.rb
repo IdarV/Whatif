@@ -23,6 +23,10 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def userquestion
+    @questions = Question.where(user_id: current_user.id)
+  end
+
   def randomquestion
     unless params['lastquestion'].nil?
       update_database
@@ -113,7 +117,7 @@ class QuestionsController < ApplicationController
           end
         else
           answeredquestion.increment!(:no, 1)
-          if (answeredquestion.no > answeredquestion.yes)
+          if answeredquestion.no > answeredquestion.yes
             update_user_commons
           end
         end
