@@ -16,7 +16,11 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
-    @question_author = User.find(@question.user_id).name
+    if @question.user_id.nil?
+      @question_author = 'anonymous'
+    else
+      @question_author = User.find(@question.user_id).name
+    end
   end
 
   def randomquestion
@@ -26,7 +30,13 @@ class QuestionsController < ApplicationController
       @lastquestion = get_what_if_sentence(Question.find(params['lastquestion']))
     end
     @question = Question.order("RANDOM()").first
-    @question_author = User.find(@question.user_id).name
+
+    if @question.user_id.nil?
+      @question_author = 'anonymous'
+    else
+      @question_author = User.find(@question.user_id).name
+    end
+
   end
 
   # GET /questions/new
