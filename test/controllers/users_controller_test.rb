@@ -106,8 +106,8 @@ class UsersControllerTest < ActionController::TestCase
 
   test 'user should not get admin header' do
     get :show, id: @user
-    assert_select 'body div nav div ul' do
-      assert_select 'li', 4
+    assert_select 'body div div div div ul' do
+      assert_select 'li', 5
     end
   end
 
@@ -115,8 +115,8 @@ class UsersControllerTest < ActionController::TestCase
     sign_out(@user)
     sign_in(@admin)
     get :index
-    assert_select 'body div nav div ul' do
-      assert_select 'li', 6
+    assert_select 'body div div div div ul' do
+      assert_select 'li', 7
     end
   end
 end
