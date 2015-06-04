@@ -60,10 +60,10 @@ class UsersController < ApplicationController
       # Uploads picture to Cloudinary and sets url to the respective Cloudinary url
       unless params[:user][:picture].nil?
         unless params[:user][:picture] == @user.picture
-          unless params[:user][:picture].empty?
+          unless params[:user][:picture].empty? || Rails.env.test? # Lession learned, do not upload images in tests
             img = Cloudinary::Uploader.upload(params[:user][:picture])
-            unless img['url'].empty?
-              params[:user][:picture] = img['url']
+            unless img['public_id'].empty?
+              params[:user][:picture] = img['public_id']
             end
           end
         end

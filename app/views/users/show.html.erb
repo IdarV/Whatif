@@ -23,7 +23,7 @@
 
     <p>
       <strong>Picture:</strong><br/>
-      <%= image_tag(@user.picture, height: "260") %>
+      <%= cl_image_tag(@user.picture, :height => 260) %>
     </p>
 
     <%= link_to 'Edit', edit_user_path(@user) %>
