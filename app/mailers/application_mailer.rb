@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'noreply.whatifgame@mandrill.com'
+  default from: 'noreply.whatifgame@whatifgame.com'
   layout 'mailer'
 
   def welcome_email(user)
