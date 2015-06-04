@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get '/randomquestion' => 'questions#randomquestion'
 
+  get '/changepassword' => 'users#changepassword'
+
   get '/users/new' => redirect('/404')
 
   get 'myquestions' => 'questions#userquestion'

@@ -24,6 +24,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def changepassword
+    @user = current_user
+  end
+
   # GET /users/new
   def new
     @user = User.new
@@ -54,11 +58,13 @@ class UsersController < ApplicationController
   def update
     if current_user.admin? || @user.id == current_user.id
       # Uploads picture to Cloudinary and sets url to the respective Clrake testoudinary url
-      unless params[:user][:picture] == @user.picture
-        unless params[:user][:picture].empty?
-          img = Cloudinary::Uploader.upload(params[:user][:picture])
-          unless img['url'].empty?
-            params[:user][:picture] = img['url']
+      unless params[:user][:picture].nil?
+        unless params[:user][:picture] == @user.picture
+          unless params[:user][:picture].empty?
+            img = Cloudinary::Uploader.upload(params[:user][:picture])
+            unless img['url'].empty?
+              params[:user][:picture] = img['url']
+            end
           end
         end
       end
