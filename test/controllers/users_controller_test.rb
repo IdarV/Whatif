@@ -119,4 +119,9 @@ class UsersControllerTest < ActionController::TestCase
       assert_select 'li', 7
     end
   end
+
+  test 'user should get reset password' do
+    get :changepassword
+    assert_response :success
+  end
 end
