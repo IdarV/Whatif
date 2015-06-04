@@ -57,7 +57,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     if current_user.admin? || @user.id == current_user.id
-      # Uploads picture to Cloudinary and sets url to the respective Clrake testoudinary url
+      # Uploads picture to Cloudinary and sets url to the respective Cloudinary url
       unless params[:user][:picture].nil?
         unless params[:user][:picture] == @user.picture
           unless params[:user][:picture].empty?
@@ -111,6 +111,6 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:name, :answered, :common, :email, :password, :picture)
+    params.require(:user).permit(:name, :answered, :common, :email, :password, :password_confirmation, :picture)
   end
 end
