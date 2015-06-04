@@ -22,6 +22,18 @@ class QuestionsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:questions)
   end
 
+  test "user should see his own questions" do
+    get :userquestion
+    assert_response :success
+  end
+
+  test "admin should also see his own questions" do
+    sign_out(@user)
+    sign_in(@admin)
+    get :userquestion
+    assert_response :success
+  end
+
   test "user should get randomquestion" do
     get :randomquestion
     assert_response :success
