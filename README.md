@@ -1,3 +1,5 @@
+# THIS IS A SCHOOL PROJECT, AND I DIDN'T REALLY KNOW WHAT I WAS DOING
+
 # Whatif...
 ### Whatif is a game where your morals will be conflicted by your ego and self esteem
 
